@@ -5,11 +5,11 @@ public class StudentManager {
 
   private static final long[] IDs = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 
-  public Student find(long studentID) throws MyException {
+  public Student find(long studentID) throws CustomException {
     if (Student.getValueOf(studentID) != null) {
       return Student.getValueOf(studentID);
     } else {
-      throw new MyException("Could not find student with ID " + studentID);
+      throw new CustomException("Could not find student with ID " + studentID);
     }
   }
 
@@ -19,8 +19,8 @@ public class StudentManager {
       try{
         Student student = manager.find(IDs[i]);
         System.out.println("Student name " + student.getName());}
-      catch (MyException e) {
-        System.out.println(e);
+      catch (CustomException e) {
+        System.err.println(e);
 
       }
     }
